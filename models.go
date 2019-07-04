@@ -199,19 +199,32 @@ type ConnectionResponse struct {
 // tx_pool_siz - unsigned int; Number of transactions that have been broadcast but not included in a block.
 // white_peerlist_size - unsigned int; White Peerlist Size
 type Info struct {
-	AltBlocksCount           uint   `json:"alt_blocks_count"`
-	Difficulty               uint   `json:"difficulty"`
+	AltBlocksCount           uint64   `json:"alt_blocks_count"`
+	BlockSizeLimit  uint `json:"block_size_limit"`
+	BlockSizeMedian uint `json:"block_size_median"`
+	BootstrapDaemonAddress string `json:"bootstrap_daemon_address"`
+	CumulativeDifficulty uint64 `json:"cumulative_difficulty"`
+	Difficulty               uint64   `json:"difficulty"`
+	FreeSpace uint `json:"free_space"`
 	GreyPeerlistSize         uint   `json:"grey_peerlist_size"`
-	Height                   uint   `json:"height"`
+	Height                   uint64   `json:"height"`
+	HeightWithoutBootstrap uint64 `json:"height_without_bootstrap"`
 	IncomingConnectionsCount uint   `json:"incoming_connections_count"`
+	Mainnet bool `json:"mainnet"`
+	Offline bool `json:"offline"`
 	OutgoingConnectionsCount uint   `json:"outgoing_connections_count"`
+	RpcConnectionsCount uint `json:"rpc_connections_count"`
+	Stagenet bool `json:"stagenet"`
+	StartTime uint64 `json:"start_time"`
 	Status                   string `json:"status"`
 	Target                   uint   `json:"target"`
 	TargetHeight             uint   `json:"target_height"`
 	Testnet                  bool   `json:"testnet"`
 	TopBlockHash             string `json:"top_block_hash"`
 	TxCount                  uint   `json:"tx_count"`
-	TxPoolSiz                uint   `json:"tx_pool_siz"`
+	TxPoolSize                uint   `json:"tx_pool_size"`
+	Untrusted bool `json:"untrusted"`
+	WasBootstrapEverUsed bool `json:"was_bootstrap_ever_used"`
 	WhitePeerlistSize        uint   `json:"white_peerlist_size"`
 }
 
